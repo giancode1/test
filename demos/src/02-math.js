@@ -12,12 +12,12 @@ function divide(a, b) {
 }
 
 function divide2(a, b) {
-  if (b === 0) throw new Error("Division by zero");
+  if (b === 0) throw new Error('Division by zero');
   return a / b;
 }
 module.exports = {
   sum,
   multiply,
   divide,
-  divide2
+  divide2,
 };
