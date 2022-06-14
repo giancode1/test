@@ -7,8 +7,15 @@ describe('Test for Person', () => {
   });
 
   test('should return down', () => {
+    // Patron AAA  // Arrange, Act, Assert  // Preparar, Ejecutar, Comprobar
+    // Given, When, Then
+
+    // Arrange
     person.weight = 45;
-    expect(person.calcIMC()).toBe('down');
+    // Act
+    const imc = person.calcIMC();
+    // Assert
+    expect(imc).toBe('down');
   });
 
   test('should return normal', () => {
