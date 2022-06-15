@@ -26,3 +26,5 @@ class Person {
   }
 }
 module.exports = Person;
+
+// en /demos: pnpm test -- --coverage
