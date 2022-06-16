@@ -1,13 +1,28 @@
 const BookService = require('./books.service');
 
+const fakeBooks = [
+  {
+    _id: 1,
+    name: 'Atomic Habits',
+  },
+];
+// suplantacion de la clase
+const MongoLibStub = {
+  getAll: () => [...fakeBooks],
+  create: () => {},
+};
+
+jest.mock('../lib/mongo.lib', () => jest.fn().mockImplementation(() => MongoLibStub));
+
 describe('Test for BookService', () => {
   let service;
   beforeEach(() => {
     service = new BookService();
+    jest.clearAllMocks();
   });
 
   describe('test for getBooks', () => {
-    test('shoudl return a list book', async () => {
+    test('should return a list book', async () => {
       // no se conecta a la base de datos, hace mock de la base de datos
       // Arrange
 
@@ -15,7 +30,7 @@ describe('Test for BookService', () => {
       const books = await service.getBooks();
       console.log(books);
       // Assert
-      expect(books.length).toEqual(2);
+      expect(books.length).toEqual(1);
     });
   });
 });
