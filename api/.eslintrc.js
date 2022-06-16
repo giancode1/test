@@ -13,5 +13,7 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    // 'import/no-import-module-exports': '',
   },
 };
