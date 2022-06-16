@@ -8,7 +8,7 @@ on:
 
 defaults:
   run:
-    working_directory: "./api"
+    working_directory: ./api
 
 jobs:
   unit-test:
@@ -20,12 +20,12 @@ jobs:
         uses: actions/setup-node@v2
       - with:
           node-version: 14
-          cache: 'pnpm'
-          cache-dependency-path: './api/pnpm-lock.yaml'
+          cache: 'npm'
+          cache-dependency-path: './api/package-lock.json'
       - name: install
         shell: bash
-        run: pnpm ci
+        run: npm ci
       - name: run unit tests
         shell: bash
-        run: pnpm test
+        run: npm run test
 
